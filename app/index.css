@@ -31,7 +31,7 @@ li {
 
 .dark {
   color: #dadada;
-  background: #1c2022;
+  background: #33303a;
   min-height: 100%;
 }
 
@@ -121,4 +121,36 @@ li {
 
 .btn-nav {
   font-size: 30px;
+}
+
+.img-404{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.load-content {
+  font-size: "35px";
+  position: "absolute";
+  left: "0";
+  right: "0";
+  margin-top: "20px";
+  text-align: "center";
 }

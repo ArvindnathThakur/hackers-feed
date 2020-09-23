@@ -6,9 +6,15 @@ import {
   BrowserRouter as Router,
   Switch,
 } from "react-router-dom";
-import Nav from "./components/Nav";
+
 import { ThemeProvider } from "./contexts/theme";
 import "./index.css";
+import Nav from "./components/Nav";
+import Loading from "./components/Loading";
+
+const NewFeeds = React.lazy(() => import("./components/NewFeeds"));
+const NotFound = React.lazy(() => import("./components/NotFound"));
+const TopFeeds = React.lazy(() => import("./components/TopFeeds"));
 
 class App extends React.Component {
   state = {
@@ -26,12 +32,14 @@ class App extends React.Component {
           <div className={this.state.theme}>
             <div className="container">
               <Nav />
+              <React.Suspense fallback={<Loading />}>
               <Switch>
-                <Route exact path="/" render={() => <h1>Top</h1>} />
+                <Route exact path="/" component={TopFeeds} />
                 <Redirect from="/top" to="/" />
-                <Route path="/new" render={() => <h1>New</h1>} />
-                <Route render={() => <h1>404</h1>} />
+                <Route path="/new" component={NewFeeds} />
+                <Route component={NotFound} />
               </Switch>
+              </React.Suspense>
             </div>
           </div>
         </ThemeProvider>
