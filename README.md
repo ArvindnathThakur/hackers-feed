@@ -2,7 +2,8 @@
 React exercise for course completion
 
 
-### Git commands- `git clone repo-url`: Clone a repository
+### Git commands
+- `git clone repo-url`: Clone a repository
 - `git branch -a`: Shows all the branches
 - `git branch -d branch-name`: Deletes the local branch
 - `git branch -u origin/master`: Set the remote tracking branch
