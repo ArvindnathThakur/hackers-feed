@@ -1,2 +1,2 @@
 # hackers-feed
-React exercise
+React exercise for course completion
