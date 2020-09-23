@@ -113,7 +113,12 @@ li {
   border-radius: 5px;
 }
 
+.dark .selected,
 .selected {
   color: rgb(187, 46, 31);
   text-decoration: underline;
+}
+
+.btn-nav {
+  font-size: 30px;
 }
