@@ -12,16 +12,17 @@ import "./index.css";
 import Nav from "./components/Nav";
 import Loading from "./components/Loading";
 
-const NewFeeds = React.lazy(() => import("./components/NewFeeds"));
+const Posts = React.lazy(() => import("./components/Posts"));
+const Post = React.lazy(() => import("./components/Post"));
+const User = React.lazy(() => import("./components/User"));
 const NotFound = React.lazy(() => import("./components/NotFound"));
-const TopFeeds = React.lazy(() => import("./components/TopFeeds"));
 
 class App extends React.Component {
   state = {
     theme: "light",
     toggleTheme: () => {
       this.setState(({ theme }) => ({
-        theme: theme === "light" ? "dark" : "light"
+        theme: theme === "light" ? "dark" : "light",
       }));
     },
   };
@@ -33,12 +34,14 @@ class App extends React.Component {
             <div className="container">
               <Nav />
               <React.Suspense fallback={<Loading />}>
-              <Switch>
-                <Route exact path="/" component={TopFeeds} />
-                <Redirect from="/top" to="/" />
-                <Route path="/new" component={NewFeeds} />
-                <Route component={NotFound} />
-              </Switch>
+                <Switch>
+                  <Route exact path="/" component={Posts} />
+                  <Redirect from="/top" to="/" />
+                  <Route exact path="/new" render={() => <Posts type="new" />} />
+                  <Route exact path="/user" component={User} />
+                  <Route exact path="/post" component={Post} />
+                  <Route component={NotFound} />
+                </Switch>
               </React.Suspense>
             </div>
           </div>
